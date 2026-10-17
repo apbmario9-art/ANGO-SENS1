@@ -2,312 +2,387 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ANGO SENSI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101010">
+<title>ANGO SENSI 🇦🇴</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#090909;color:#fff;min-height:100vh}
-header{padding:20px;text-align:center;background:linear-gradient(135deg,#111,#360000);border-bottom:2px solid #e00000}
-.logo{font-size:34px;font-weight:900;color:#ff2020;text-shadow:0 0 15px #f00}
-.logo span{color:#fff}
-.flag{font-size:24px;margin-top:5px}
-.container{max-width:700px;margin:auto;padding:20px}
-.card{background:#151515;border:1px solid #333;border-radius:18px;padding:20px;margin-bottom:18px;box-shadow:0 0 20px #000}
-h2{color:#ff3030;margin-bottom:15px}
-label{display:block;margin:12px 0 6px;font-weight:bold}
-select,button{width:100%;padding:14px;border-radius:10px;border:1px solid #444;background:#222;color:#fff;font-size:16px}
-select:focus{border-color:#f00;outline:none}
-button{margin-top:12px;background:linear-gradient(90deg,#d40000,#ff3030);border:0;font-weight:bold;cursor:pointer}
-button:hover{filter:brightness(1.2)}
-.secondary{background:#292929}
-.result{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.sensi{background:#202020;border-radius:12px;padding:15px;text-align:center;border:1px solid #333}
-.sensi strong{display:block;color:#ff3030;font-size:14px}
-.sensi span{font-size:28px;font-weight:bold}
-.status{text-align:center;margin-top:12px;color:#5cff7a;min-height:20px}
-.history-item{background:#202020;padding:12px;border-radius:10px;margin-top:8px;font-size:14px}
-.badge{display:inline-block;padding:5px 9px;background:#b00000;border-radius:20px;font-size:12px;margin-bottom:10px}
-footer{text-align:center;padding:25px;color:#aaa;font-size:13px}
-ul{padding-left:20px;line-height:1.8;color:#ddd}
-@media(max-width:500px){
-.container{padding:12px}
-.logo{font-size:28px}
-.result{grid-template-columns:1fr 1fr}
-.sensi span{font-size:24px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+ font-family:Arial,sans-serif;
+ background:#090909;color:white;
 }
+header{
+ background:linear-gradient(135deg,#d71920,#111 65%);
+ padding:25px 15px;text-align:center;
+ border-bottom:3px solid #ffcf00;
+}
+.flag{
+ width:95px;height:58px;margin:15px auto;
+ background:linear-gradient(to bottom,#d71920 50%,#000 50%);
+ display:flex;align-items:center;justify-content:center;
+ font-size:27px;border:1px solid white;
+}
+header h1{font-size:32px;color:#ffcf00}
+header p{margin-top:8px}
+nav{
+ display:flex;justify-content:center;gap:10px;
+ flex-wrap:wrap;padding:15px;background:#151515;
+}
+button,select,input{
+ padding:12px;border-radius:9px;border:none;
+ font-size:15px;
+}
+button{
+ background:#e51d2a;color:white;font-weight:bold;
+ cursor:pointer;
+}
+button:active{transform:scale(.97)}
+main{max-width:850px;margin:auto;padding:18px}
+.card{
+ background:#171717;border:1px solid #303030;
+ border-radius:15px;padding:20px;margin-bottom:18px;
+}
+h2{color:#ffcf00;margin-bottom:15px}
+label{display:block;margin:14px 0 7px}
+select,input{
+ width:100%;background:#252525;color:white;
+ border:1px solid #444;
+}
+.full{width:100%;margin-top:18px}
+.result{
+ background:#090909;border:1px solid #e51d2a;
+ padding:17px;border-radius:12px;margin-top:17px;
+}
+.value{
+ display:flex;justify-content:space-between;
+ padding:12px;border-bottom:1px solid #333;
+}
+.value strong{color:#ffcf00}
+.small{color:#bbb;font-size:13px;line-height:1.6}
+.profile{
+ width:110px;height:110px;border-radius:50%;
+ margin:12px auto;background:#292929;
+ border:3px solid #ffcf00;
+ display:flex;align-items:center;justify-content:center;
+ font-size:36px;
+}
+footer{text-align:center;padding:25px;color:#aaa}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">ANGO <span>SENSI</span></div>
-<div class="flag">🇦🇴</div>
+ <div class="flag">☭</div>
+ <h1>ANGO SENSI</h1>
+ <p>🇦🇴 A tua sensibilidade, o teu estilo!</p>
+ <p>FREE FIRE • ANDROID • iPHONE • PC</p>
 </header>
 
-<div class="container">
+<nav>
+ <button onclick="ir('gerador')">🎯 Gerador</button>
+ <button onclick="ir('dispositivos')">📱 Dispositivos</button>
+ <button onclick="ir('dicas')">⚡ Dicas</button>
+ <button onclick="ir('sobre')">👑 Nobody</button>
+</nav>
 
-<div class="card">
-<span class="badge">GERADOR PRO</span>
-<h2>🎮 Gerar Sensibilidade</h2>
+<main>
 
-<label>Marca do celular</label>
-<select id="brand" onchange="loadModels()">
-<option value="">Selecione a marca</option>
-<option>Samsung</option>
-<option>Xiaomi</option>
-<option>Redmi</option>
-<option>POCO</option>
-<option>ZTE</option>
-<option>Infinix</option>
-<option>Tecno</option>
-<option>Itel</option>
-<option>iPhone</option>
-<option>Huawei</option>
-<option>OPPO</option>
-<option>Vivo</option>
-<option>Realme</option>
-<option>Motorola</option>
-<option>Nokia</option>
-<option>OnePlus</option>
-<option>Google Pixel</option>
-</select>
+<section class="card" id="gerador">
+ <h2>🎯 GERADOR DE SENSI</h2>
 
-<label>Modelo</label>
-<select id="model">
-<option value="">Primeiro escolha a marca</option>
-</select>
+ <label for="tipo">Tipo de dispositivo</label>
+ <select id="tipo" onchange="atualizarMarcas()">
+  <option value="Android">Android</option>
+  <option value="iPhone">iPhone</option>
+  <option value="PC">PC / Emulador</option>
+ </select>
 
-<label>Potência do aparelho</label>
-<select id="power">
-<option value="low">Fraco</option>
-<option value="medium" selected>Médio</option>
-<option value="high">Potente</option>
-</select>
+ <label for="marca">Marca</label>
+ <select id="marca" onchange="atualizarModelos()"></select>
 
-<label>Estilo de jogo</label>
-<select id="style">
-<option value="headshot">Capa / Headshot</option>
-<option value="balanced">Equilibrado</option>
-<option value="precision">Precisão</option>
-<option value="rush">Rush</option>
-</select>
+ <label for="modelo">Modelo do dispositivo</label>
+ <select id="modelo"></select>
 
-<button onclick="generate()">🔥 GERAR SENSI</button>
-<button class="secondary" onclick="clearResult()">🗑️ LIMPAR</button>
-</div>
+ <label for="ram">Memória RAM</label>
+ <select id="ram">
+  <option value="2">2 GB</option>
+  <option value="3">3 GB</option>
+  <option value="4" selected>4 GB</option>
+  <option value="6">6 GB</option>
+  <option value="8">8 GB</option>
+  <option value="12">12 GB</option>
+  <option value="16">16 GB ou mais</option>
+ </select>
 
-<div class="card" id="resultCard" style="display:none">
-<h2>⚡ Sua ANGO SENSI</h2>
-<div id="deviceInfo"></div>
+ <label for="estilo">Estilo de jogo</label>
+ <select id="estilo">
+  <option value="capa">Dar capa / Headshots</option>
+  <option value="equilibrado">Equilibrado</option>
+  <option value="precisao">Precisão e controlo</option>
+ </select>
 
-<div class="result">
-<div class="sensi"><strong>GERAL</strong><span id="geral">0</span></div>
-<div class="sensi"><strong>PONTO VERMELHO</strong><span id="red">0</span></div>
-<div class="sensi"><strong>MIRA 2X</strong><span id="x2">0</span></div>
-<div class="sensi"><strong>MIRA 4X</strong><span id="x4">0</span></div>
-<div class="sensi"><strong>MIRA AWM</strong><span id="awm">0</span></div>
-<div class="sensi"><strong>OLHADINHA</strong><span id="look">0</span></div>
-</div>
+ <label for="escala">Escala de sensibilidade</label>
+ <select id="escala">
+  <option value="100">0–100</option>
+  <option value="200" selected>0–200</option>
+ </select>
 
-<button onclick="copySensi()">📋 COPIAR SENSI</button>
-<button class="secondary" onclick="generate()">🔄 GERAR NOVAMENTE</button>
-<div class="status" id="status"></div>
-</div>
+ <button class="full" onclick="gerar()">🔥 GERAR MINHA SENSI</button>
 
-<div class="card">
-<h2>🚀 ANGO SENSI PRO</h2>
-<ul>
-<li>Sensi para capa</li>
-<li>Sensi para HS</li>
-<li>Sensi para 2 dedos</li>
-<li>Sensi para 3 dedos</li>
-<li>Sensi para 4 dedos</li>
-<li>Sensi para iniciantes</li>
-<li>Sensi para jogadores avançados</li>
-</ul>
-</div>
+ <div id="resultado" class="result" hidden>
+  <h2>🔥 A TUA SENSI</h2>
+  <div id="valores"></div>
+  <p class="small" id="resumo"></p>
+  <button class="full" onclick="copiar()">📋 COPIAR CONFIGURAÇÃO</button>
+ </div>
+</section>
 
-<div class="card">
-<h2>📖 Como usar</h2>
-<ul>
-<li>Escolha a marca do seu celular.</li>
-<li>Escolha o modelo.</li>
-<li>Escolha a potência do aparelho.</li>
-<li>Escolha seu estilo de jogo.</li>
-<li>Clique em GERAR SENSI.</li>
-<li>Aplique os valores no Free Fire.</li>
-<li>Teste no campo de treinamento e ajuste conforme sua preferência.</li>
-</ul>
-</div>
+<section class="card" id="dispositivos">
+ <h2>📱 MODELOS DISPONÍVEIS</h2>
+ <p class="small">
+ O catálogo inclui modelos populares e famílias de dispositivos.
+ Se um modelo não aparecer, escolhe o mais próximo da mesma marca.
+ </p>
+ <div id="catalogo"></div>
+</section>
 
-<div class="card">
-<h2>🇦🇴 Sobre a ANGO SENSI</h2>
-<p>A ANGO SENSI é uma ferramenta criada para ajudar jogadores de Free Fire, especialmente a comunidade angolana, a encontrar configurações de sensibilidade de acordo com o aparelho e estilo de jogo.</p>
-</div>
+<section class="card" id="dicas">
+ <h2>⚡ DICAS PARA REDUZIR O LAG</h2>
+ <p>✅ Fecha aplicações que não estás a utilizar.</p><br>
+ <p>✅ Reduz os gráficos se o jogo estiver lento.</p><br>
+ <p>✅ Mantém espaço livre no armazenamento.</p><br>
+ <p>✅ Usa uma ligação estável à Internet.</p><br>
+ <p>✅ Testa a sensibilidade no campo de treino.</p><br>
+ <p class="small">Nota: o site recomenda configurações, mas não consegue aumentar fisicamente os FPS do dispositivo nem garantir headshots.</p>
+</section>
 
-<div class="card">
-<h2>⚠️ Aviso</h2>
-<p>A sensibilidade é uma recomendação. O resultado pode variar conforme o aparelho, FPS, taxa de atualização, DPI, controles e estilo de jogo.</p>
-</div>
+<section class="card" id="sobre">
+ <h2>👑 CRIADOR</h2>
+ <div class="profile">N</div>
+ <h3 style="text-align:center">NOBODY</h3>
+ <p class="small" style="text-align:center;margin-top:10px">
+ ANGO SENSI 🇦🇴 — Projeto dedicado à comunidade Free Fire.
+ </p>
+ <p class="small" style="text-align:center;margin-top:12px">
+ Para usar uma fotografia verdadeira do Nobody, substitui o círculo acima por uma imagem tua autorizada.
+ </p>
+</section>
 
-<div class="card">
-<h2>🕘 Histórico</h2>
-<div id="history">Nenhuma sensibilidade gerada.</div>
-</div>
-
-</div>
+</main>
 
 <footer>
-ANGO SENSI © 2026 — Desenvolvido para a comunidade Free Fire Angola 🇦🇴
+ <p>🇦🇴 ANGO SENSI © 2026</p>
+ <p class="small">Projeto independente de configurações para jogadores.</p>
 </footer>
 
 <script>
-const models={
-Samsung:["Galaxy A05","Galaxy A05s","Galaxy A06","Galaxy A15","Galaxy A16","Galaxy A25","Galaxy A35","Galaxy A55","Galaxy S21","Galaxy S22","Galaxy S23","Galaxy S24","Galaxy S25"],
-Xiaomi:["Redmi Note 10","Redmi Note 11","Redmi Note 12","Redmi Note 13","Redmi Note 14","Xiaomi 12","Xiaomi 13","Xiaomi 14","Xiaomi 15"],
-Redmi:["Redmi 9A","Redmi 10C","Redmi 12C","Redmi 13C","Redmi Note 11","Redmi Note 12","Redmi Note 13","Redmi Note 14"],
-POCO:["POCO C40","POCO C65","POCO X3","POCO X5","POCO X6","POCO X7","POCO F4","POCO F5","POCO F6"],
-ZTE:["ZTE Blade A35","ZTE Blade A36","ZTE Blade A34","ZTE Blade A45","ZTE Blade A45s","ZTE Blade A52","ZTE Blade A53","ZTE Blade A54","ZTE Blade A55","ZTE Blade V40","ZTE Blade V50"],
-Infinix:["Hot 10","Hot 11","Hot 12","Hot 20","Hot 30","Hot 40","Hot 50","Hot 60","Note 12","Note 30","Note 40","GT 10 Pro"],
-Tecno:["Spark 8","Spark 9","Spark 10","Spark 20","Spark 30","Spark 40","Pova 4","Pova 5","Pova 6","Camon 20","Camon 30"],
-Itel:["A16","A23","A27","A48","A50","A60","A70","A80","P17","P38"],
-iPhone:["iPhone 7","iPhone 8","iPhone X","iPhone 11","iPhone 12","iPhone 13","iPhone 14","iPhone 15","iPhone 16","iPhone 17"],
-Huawei:["Y5","Y6","Y7","Y8","Y9","Nova 9","Nova 10","Nova 11","P30","P40","P50"],
-OPPO:["A16","A17","A18","A38","A58","A78","Reno 7","Reno 8","Reno 10","Reno 12"],
-Vivo:["Y12","Y15","Y16","Y17","Y20","Y21","Y22","Y35","V23","V25"],
-Realme:["C11","C21","C25","C30","C33","C35","C51","C53","C55","C67","GT Neo"],
-Motorola:["Moto E13","Moto E14","Moto G10","Moto G20","Moto G22","Moto G32","Moto G54","Moto G84","Edge 30","Edge 40"],
-Nokia:["Nokia 2.4","Nokia 3.4","Nokia 5.4","Nokia C10","Nokia C20","Nokia C21","Nokia C32","Nokia G10","Nokia G22"],
-OnePlus:["Nord N10","Nord N20","Nord N30","Nord CE 2","Nord CE 3","Nord CE 4","OnePlus 9","OnePlus 10","OnePlus 11","OnePlus 12"],
-"Google Pixel":["Pixel 4","Pixel 5","Pixel 6","Pixel 7","Pixel 8","Pixel 9","Pixel 10"]
+const modelos={
+ Android:{
+  "ZTE":[
+   "ZTE Blade A35","ZTE Blade A36","ZTE Blade A45",
+   "ZTE Blade A45s","ZTE Blade A51","ZTE Blade A52",
+   "ZTE Blade A53","ZTE Blade A54","ZTE Blade A55",
+   "ZTE Blade A56","ZTE Blade V50","ZTE Nubia Neo"
+  ],
+  "Samsung":[
+   "Galaxy A03","Galaxy A04","Galaxy A05","Galaxy A06",
+   "Galaxy A12","Galaxy A13","Galaxy A14","Galaxy A15",
+   "Galaxy A16","Galaxy A24","Galaxy A25","Galaxy A34",
+   "Galaxy A35","Galaxy A54","Galaxy A55","Galaxy S21",
+   "Galaxy S22","Galaxy S23","Galaxy S24","Galaxy S25"
+  ],
+  "Tecno":[
+   "Pop 5","Pop 7","Pop 8","Pop 9","Pop 10",
+   "Spark 8","Spark 10","Spark 20","Spark 30",
+   "Spark 40","Pova 4","Pova 5","Pova 6","Pova 7"
+  ],
+  "Infinix":[
+   "Smart 6","Smart 7","Smart 8","Smart 9",
+   "Hot 10","Hot 11","Hot 12","Hot 30","Hot 40",
+   "Hot 50","Hot 60","Note 12","Note 30",
+   "Note 40","GT 10 Pro","GT 20 Pro"
+  ],
+  "Xiaomi / Redmi":[
+   "Redmi 9A","Redmi 10A","Redmi 12C","Redmi 13C",
+   "Redmi 14C","Redmi Note 10","Redmi Note 11",
+   "Redmi Note 12","Redmi Note 13","Redmi Note 14",
+   "POCO C65","POCO C75","POCO X5","POCO X6",
+   "POCO X7","POCO F5","POCO F6"
+  ],
+  "Huawei":[
+   "Y6","Y7","Y8p","Y9","Y9a","Nova 9",
+   "Nova 10","Nova 11","Nova 12","Nova 13"
+  ],
+  "OPPO":[
+   "A16","A17","A18","A38","A58","A60",
+   "A78","A98","Reno 8","Reno 10","Reno 12"
+  ],
+  "Realme":[
+   "C11","C21","C25","C30","C33","C35",
+   "C51","C53","C55","C61","C63","C67",
+   "Narzo 50","Narzo 60","GT Neo 3"
+  ],
+  "Vivo":[
+   "Y15","Y16","Y17s","Y20","Y21","Y22",
+   "Y27","Y28","Y36","Y100","V25","V29","V30"
+  ],
+  "Itel":[
+   "A23","A25","A27","A49","A50","A60",
+   "A70","A80","P40","P55","S23","S24"
+  ],
+  "Motorola":[
+   "Moto E13","Moto E14","Moto G13","Moto G14",
+   "Moto G23","Moto G24","Moto G34","Moto G54",
+   "Moto G84","Edge 40","Edge 50"
+  ],
+  "Google Pixel":[
+   "Pixel 6a","Pixel 7a","Pixel 8a",
+   "Pixel 7","Pixel 8","Pixel 9","Pixel 10"
+  ],
+  "OnePlus":[
+   "Nord N20","Nord N30","Nord CE 3","Nord CE 4",
+   "OnePlus 10","OnePlus 11","OnePlus 12","OnePlus 13"
+  ],
+  "Sony":[
+   "Xperia 10 IV","Xperia 10 V","Xperia 10 VI",
+   "Xperia 1 IV","Xperia 1 V","Xperia 1 VI"
+  ]
+ },
+ iPhone:{
+  "Apple":[
+   "iPhone 7","iPhone 8","iPhone X","iPhone XR",
+   "iPhone XS","iPhone 11","iPhone 12","iPhone 13",
+   "iPhone 14","iPhone 15","iPhone 16","iPhone 17",
+   "iPhone 11 Pro","iPhone 12 Pro","iPhone 13 Pro",
+   "iPhone 14 Pro","iPhone 15 Pro","iPhone 16 Pro",
+   "iPhone 17 Pro"
+  ]
+ },
+ PC:{
+  "Windows PC":[
+   "PC básico","PC 4 GB RAM","PC 8 GB RAM",
+   "PC 16 GB RAM","PC gamer","Portátil gamer",
+   "BlueStacks","LDPlayer","MEmu"
+  ],
+  "Mac":[
+   "Mac Intel","MacBook Air M1","MacBook Air M2",
+   "MacBook Air M3","MacBook Pro M1","MacBook Pro M2",
+   "MacBook Pro M3","MacBook Pro M4"
+  ]
+ }
 };
 
-let current={};
-
-function loadModels(){
-const brand=document.getElementById("brand").value;
-const select=document.getElementById("model");
-select.innerHTML='<option value="">Selecione o modelo</option>';
-if(models[brand]){
-models[brand].forEach(m=>{
-const option=document.createElement("option");
-option.textContent=m;
-option.value=m;
-select.appendChild(option);
-});
-}
+function atualizarMarcas(){
+ const tipo=document.getElementById("tipo").value;
+ const marca=document.getElementById("marca");
+ marca.innerHTML="";
+ Object.keys(modelos[tipo]).forEach(m=>{
+  marca.add(new Option(m,m));
+ });
+ atualizarModelos();
 }
 
-function generate(){
-const brand=document.getElementById("brand").value;
-const model=document.getElementById("model").value;
-const power=document.getElementById("power").value;
-const style=document.getElementById("style").value;
-
-if(!brand||!model){
-alert("Selecione a marca e o modelo do celular.");
-return;
+function atualizarModelos(){
+ const tipo=document.getElementById("tipo").value;
+ const marca=document.getElementById("marca").value;
+ const campo=document.getElementById("modelo");
+ campo.innerHTML="";
+ (modelos[tipo][marca]||[]).forEach(m=>{
+  campo.add(new Option(m,m));
+ });
 }
 
-let base=175;
+function gerar(){
+ const tipo=document.getElementById("tipo").value;
+ const modelo=document.getElementById("modelo").value;
+ const ram=Number(document.getElementById("ram").value);
+ const estilo=document.getElementById("estilo").value;
+ const escala=Number(document.getElementById("escala").value);
 
-if(power==="low") base=145;
-if(power==="medium") base=165;
-if(power==="high") base=185;
+ let base=escala===200?170:85;
+ if(ram<=3)base-=8;
+ if(ram>=8)base+=5;
+ if(tipo==="PC")base+=5;
 
-if(style==="headshot") base+=12;
-if(style==="precision") base-=5;
-if(style==="rush") base+=8;
+ let fatores={
+  "Geral":1,
+  "Ponto vermelho":0.98,
+  "Mira 2x":0.92,
+  "Mira 4x":0.84,
+  "Mira AWM":0.62,
+  "Olhadinha":0.90
+ };
 
-const variation=Math.floor(Math.random()*9)-4;
+ if(estilo==="precisao"){
+  fatores["Geral"]-=0.10;
+  fatores["Ponto vermelho"]-=0.10;
+  fatores["Mira 2x"]-=0.08;
+  fatores["Mira 4x"]-=0.08;
+ }
+ if(estilo==="equilibrado"){
+  fatores["Geral"]-=0.04;
+  fatores["Ponto vermelho"]-=0.03;
+ }
+ if(estilo==="capa"){
+  fatores["Geral"]+=0.04;
+  fatores["Ponto vermelho"]+=0.04;
+ }
 
-let geral=Math.min(200,Math.max(80,base+variation));
-let red=Math.min(200,Math.max(70,geral-5+Math.floor(Math.random()*8)));
-let x2=Math.min(200,Math.max(60,geral-15+Math.floor(Math.random()*10)));
-let x4=Math.min(200,Math.max(50,geral-30+Math.floor(Math.random()*10)));
-let awm=Math.min(200,Math.max(30,geral-45+Math.floor(Math.random()*10)));
-let look=Math.min(200,Math.max(70,geral+Math.floor(Math.random()*8)));
+ let saida={};
+ for(const [nome,fator] of Object.entries(fatores)){
+  saida[nome]=Math.max(0,Math.min(escala,
+   Math.round(base*fator)
+  ));
+ }
 
-current={brand,model,geral,red,x2,x4,awm,look};
+ window.configGerada=saida;
 
-document.getElementById("geral").textContent=geral;
-document.getElementById("red").textContent=red;
-document.getElementById("x2").textContent=x2;
-document.getElementById("x4").textContent=x4;
-document.getElementById("awm").textContent=awm;
-document.getElementById("look").textContent=look;
+ document.getElementById("valores").innerHTML=
+  Object.entries(saida).map(([k,v])=>
+   `<div class="value"><span>${k}</span><strong>${v}</strong></div>`
+  ).join("");
 
-document.getElementById("deviceInfo").innerHTML=
-"<p>📱 "+brand+" "+model+" | 🎮 "+styleName(style)+"</p>";
+ document.getElementById("resumo").textContent=
+  "Dispositivo: "+modelo+
+  " | RAM selecionada: "+ram+" GB"+
+  " | Escala: 0–"+escala+
+  ". Valores iniciais para testar e ajustar.";
 
-document.getElementById("resultCard").style.display="block";
-document.getElementById("status").textContent="";
-
-saveHistory();
-showHistory();
+ document.getElementById("resultado").hidden=false;
 }
 
-function styleName(s){
-return {
-headshot:"Capa / Headshot",
-balanced:"Equilibrado",
-precision:"Precisão",
-rush:"Rush"
-}[s];
+function copiar(){
+ if(!window.configGerada)return;
+ const texto="ANGO SENSI 🇦🇴\n"+
+ Object.entries(window.configGerada)
+ .map(([k,v])=>k+": "+v).join("\n");
+ if(navigator.clipboard&&navigator.clipboard.writeText){
+  navigator.clipboard.writeText(texto)
+  .then(()=>alert("Configuração copiada!"))
+  .catch(()=>alert(texto));
+ }else{
+  prompt("Copia a tua configuração:",texto);
+ }
 }
 
-function copySensi(){
-if(!current.model)return;
-
-const text=
-"🔥 ANGO SENSI\n"+
-"📱 "+current.brand+" "+current.model+"\n"+
-"🎯 Geral: "+current.geral+"\n"+
-"🔴 Ponto Vermelho: "+current.red+"\n"+
-"🔭 Mira 2X: "+current.x2+"\n"+
-"🔭 Mira 4X: "+current.x4+"\n"+
-"🎯 Mira AWM: "+current.awm+"\n"+
-"👁️ Olhadinha: "+current.look;
-
-navigator.clipboard.writeText(text).then(()=>{
-document.getElementById("status").textContent="✅ Sensi copiada!";
-}).catch(()=>{
-document.getElementById("status").textContent="⚠️ Não foi possível copiar automaticamente.";
-});
+function ir(id){
+ document.getElementById(id).scrollIntoView({
+  behavior:"smooth"
+ });
 }
 
-function saveHistory(){
-let history=JSON.parse(localStorage.getItem("angoSensiHistory")||"[]");
-history.unshift({...current,date:new Date().toLocaleString("pt-AO")});
-history=history.slice(0,10);
-localStorage.setItem("angoSensiHistory",JSON.stringify(history));
-}
+atualizarMarcas();
 
-function showHistory(){
-const history=JSON.parse(localStorage.getItem("angoSensiHistory")||"[]");
-const box=document.getElementById("history");
-
-if(!history.length){
-box.textContent="Nenhuma sensibilidade gerada.";
-return;
-}
-
-box.innerHTML=history.map((h,i)=>`
-<div class="history-item">
-<b>📱 ${h.brand} ${h.model}</b><br>
-Geral ${h.geral} | P.Red ${h.red} | 2X ${h.x2} | 4X ${h.x4} | AWM ${h.awm} | Olhadinha ${h.look}
-<br><small>${h.date}</small>
-</div>`).join("");
-}
-
-function clearResult(){
-document.getElementById("resultCard").style.display="none";
-document.getElementById("status").textContent="";
-current={};
-}
-
-showHistory();
+document.getElementById("catalogo").innerHTML=
+ Object.entries(modelos).map(([tipo,marcas])=>
+  `<h3 style="color:#ffcf00;margin:18px 0 8px">${tipo}</h3>`+
+  Object.entries(marcas).map(([marca,lista])=>
+   `<p style="margin:8px 0"><strong>${marca}:</strong> `+
+   lista.join(", ")+"</p>"
+  ).join("")
+ ).join("");
 </script>
 
 </body>
